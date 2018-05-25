@@ -1,0 +1,10 @@
+language: csharp
+solution: coverlet-issue.sln
+dotnet: 2.0.0
+os: linux
+script:
+  - dotnet build
+  - dotnet test ./Sample.Tests/Sample.Tests.csproj /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
+  - curl -s https://codecov.io/bash > codecov
+  - chmod +x codecov
+  - ./codecov -f ./Sample.Tests/coverage.xml
