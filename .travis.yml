@@ -1,7 +1,7 @@
 language: csharp
 solution: coverlet-issue.sln
 dotnet: 2.0.0
-os: linux
+mono: none
 script:
   - dotnet build
   - dotnet test ./Sample.Tests/Sample.Tests.csproj /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
